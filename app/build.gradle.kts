@@ -50,6 +50,9 @@ android {
         compose = true
         viewBinding = true
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.1.0-beta03"
+    }
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -101,6 +104,9 @@ dependencies {
     implementation(libs.google.accompanist.permissions)
     implementation(libs.io.coil.compose)
     implementation(libs.io.coil.gif)
+
+    implementation(libs.androidx.glance.appwidget)
+    implementation(libs.androidx.glance.material3)
 
     coreLibraryDesugaring(libs.desugar.jdk.libs)
 }
