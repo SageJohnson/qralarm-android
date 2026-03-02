@@ -224,4 +224,9 @@
     <string name="google_play" translatable="false">Google Play</string>
     <string name="itch_io" translatable="false">itch.io</string>
     <string name="standalone_app">Standalone app</string>
+    <string name="time_saved">Time Saved</string>
+    <string name="time_saved_headline">Time saved waking up early</string>
+    <string name="on_time_wakeups">On-time wakeups</string>
+    <string name="day_streak">Day streak</string>
+    <string name="time_saved_coming_soon">Stats will appear here once alarm is actually passed data.</string>
 </resources>

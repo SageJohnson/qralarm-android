@@ -58,7 +58,8 @@ fun MenuScreen(
     onEmergencyTaskSettingsClicked: () -> Unit,
     onQRAlarmProClicked: () -> Unit,
     onRateQRAlarmClicked: () -> Unit,
-    onScanDefaultCodeClicked: () -> Unit
+    onScanDefaultCodeClicked: () -> Unit,
+    onTimeSavedClicked: () -> Unit
 ) {
     val menuViewModel = hiltViewModel<MenuViewModel>()
     val menuScreenState by menuViewModel.state.collectAsStateWithLifecycle()
@@ -91,6 +92,7 @@ fun MenuScreen(
                     onEmergencyTaskSettingsClicked()
                 is MenuScreenUserEvent.OnQRAlarmProClicked -> onQRAlarmProClicked()
                 is MenuScreenUserEvent.OnRateQRAlarmClicked -> onRateQRAlarmClicked()
+                is MenuScreenUserEvent.OnTimeSavedClicked -> onTimeSavedClicked()
                 is MenuScreenUserEvent.TryScanSpecificDefaultCode -> {
                     menuViewModel.onEvent(
                         MenuScreenUserEvent.AssignDefaultCodeDialogVisible(isVisible = false)
@@ -207,6 +209,10 @@ fun MenuScreenContent(
                 MenuEntry(
                     title = stringResource(R.string.rate_qralarm),
                     onClick = { onEvent(MenuScreenUserEvent.OnRateQRAlarmClicked) }
+                )
+                MenuEntry(
+                    title = stringResource(R.string.time_saved),
+                    onClick = { onEvent(MenuScreenUserEvent.OnTimeSavedClicked) }
                 )
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {

@@ -42,6 +42,8 @@ import com.sweak.qralarm.features.qralarm_pro.navigation.navigateToQRAlarmPro
 import com.sweak.qralarm.features.qralarm_pro.navigation.qralarmProScreen
 import com.sweak.qralarm.features.rate.navigation.navigateToRate
 import com.sweak.qralarm.features.rate.navigation.rateScreen
+import com.sweak.qralarm.features.time_saved.navigation.navigateToTimeSaved
+import com.sweak.qralarm.features.time_saved.navigation.timeSavedScreen
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -209,6 +211,9 @@ class MainActivity : FragmentActivity() {
                                 navController.navigateToCustomCodeScanner(
                                     shouldScanForDefaultCode = true
                                 )
+                            },
+                            onTimeSavedClicked = {
+                                navController.navigateToTimeSaved()
                             }
                         )
 
@@ -233,6 +238,12 @@ class MainActivity : FragmentActivity() {
 
                         rateScreen(
                             onExit = {
+                                navController.navigateUp()
+                            }
+                        )
+
+                        timeSavedScreen(
+                            onBackClicked = {
                                 navController.navigateUp()
                             }
                         )
